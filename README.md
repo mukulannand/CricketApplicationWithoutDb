@@ -1,5 +1,6 @@
 # CricketApplicationWithoutDb
 Randomly Score Generator Cricekt Application
+
 A simple cricket application in which scores are generating randomly and different for Batsman and Bowler.
 
 To run this Application:
