@@ -1,5 +1,6 @@
 class Player {
 
+    private int playerID;
     private String playerName;
     private String playerType;
     private int totalRunScored = 0;
@@ -15,25 +16,35 @@ class Player {
 
 
 
-    public Player(String playerName, String playerType) {
+    public Player(String playerName, String playerType, int playerID) {
         setPlayerName(playerName);
         setPlayerType(playerType);
+        setPlayerID(playerID);
     }
 
     @Override
     public String toString() {
-        return "Player{ " +
-                "PlayerName = '" + playerName + '\'' +
-                ", totalRunScored = " + totalRunScored +
-                ", totalBallPlayed = " + totalBallPlayed +
-                ", totalFours = " + totalFours +
-                ", totalSixes = " + totalSixes +
-                ", isOut = " + isOut +
-                ", totalRunsGiven = " + totalRunsGiven +
-                ", totalOversBowled = " + totalOversBowled +
-                ", totalWicketsTaken = " + totalWicketsTaken +
-                ", totalMaidenOversBowled = " + totalMaidenOversBowled +
-                " }";
+        return "Player{" +
+                "playerName='" + playerName + '\'' +
+                ", playerType='" + playerType + '\'' +
+                ", totalRunScored=" + totalRunScored +
+                ", totalBallPlayed=" + totalBallPlayed +
+                ", totalFours=" + totalFours +
+                ", totalSixes=" + totalSixes +
+                ", isOut=" + isOut +
+                ", totalRunsGiven=" + totalRunsGiven +
+                ", totalOversBowled=" + totalOversBowled +
+                ", totalWicketsTaken=" + totalWicketsTaken +
+                ", totalMaidenOversBowled=" + totalMaidenOversBowled +
+                '}';
+    }
+
+    public int getPlayerID() {
+        return playerID;
+    }
+
+    private void setPlayerID(int playerID) {
+        this.playerID = playerID;
     }
 
     public String getPlayerName() {

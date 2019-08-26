@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerClass {
-    static Team createFirstTeamAndAddPlayers()
+/*    static Team createFirstTeamAndAddPlayers()
     {
         Player p1_1 = new Player("Rohit Sharma", "Batsman");
         Player p1_2 = new Player("Shikhar Dhawan", "Batsman");
@@ -27,7 +27,7 @@ public class ControllerClass {
         playersIndia.add(p1_9);
         playersIndia.add(p1_10);
         playersIndia.add(p1_11);
-        Team india = new Team("India", playersIndia);
+        Team india = new Team(1, "India", playersIndia);
         return india;
     }
     static Team createSecondTeamAndAddPlayers()
@@ -56,10 +56,11 @@ public class ControllerClass {
         playersAustralia.add(p2_9);
         playersAustralia.add(p2_10);
         playersAustralia.add(p2_11);
-        Team australia = new Team("Australia", playersAustralia);
+        Team australia = new Team(1, "Australia", playersAustralia);
         return australia;
     }
-
+ */
+/*
     public static void main(String[] args) {
 
 
@@ -70,5 +71,6 @@ public class ControllerClass {
         commonWealthSeries.setWinnerTeam(winner);
         System.out.println("Congratulations "+commonWealthSeries.getWinnerTeam() +" for winning the series");
     }
+*/
 
 }

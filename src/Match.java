@@ -2,6 +2,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Match {
 
+    private  static int matchID = 0;
     private static int MAX_OVER_PER_BOWLER = 4;
     private Team team1;
     private Team team2;
@@ -12,8 +13,11 @@ public class Match {
     private int secondInningsScore = 0;
     private int secondInningsWicket = 0;
     private double secondInningsOverBowled = 0.0;
+    private int tossWon;
+    private int matchWon;
 
     public Match(Team team1, Team team2, int overs ) {
+        matchID = DatabaseConnection.getMatchID()+1;
         this.team1 = team1;
         this.team2 = team2;
         this.overs = overs;
@@ -33,6 +37,27 @@ public class Match {
                 ", secondInningsOverBowled=" + secondInningsOverBowled +
                 '}';
     }
+
+    public int getTossWon() {
+        return tossWon;
+    }
+
+    public void setTossWon(int tossWon) {
+        this.tossWon = tossWon;
+    }
+
+    public int getMatchWon() {
+        return matchWon;
+    }
+
+    public void setMatchWon(int matchWon) {
+        this.matchWon = matchWon;
+    }
+
+    public int getMatchID() {
+        return matchID;
+    }
+
 
     public static int getMaxOverPerBowler() {
         return MAX_OVER_PER_BOWLER;
@@ -97,6 +122,8 @@ public class Match {
         int tossWinner = ThreadLocalRandom.current().nextInt(2);
         if(tossWinner == 0)
         {
+
+            setTossWon(team1.getTeamID());
             team1.setTossWon(true);
             int tossResult = ThreadLocalRandom.current().nextInt(2);
             if(tossResult == 0)
@@ -106,6 +133,7 @@ public class Match {
 
         }
         else{
+            setTossWon(team2.getTeamID());
             team2.setTossWon(true);
             int tossResult = ThreadLocalRandom.current().nextInt(2);
             if(tossResult == 0)
@@ -123,7 +151,7 @@ public class Match {
 
     void firstInningsScoreGenerator(Team battingTeam, Team bowlingTeam)
     {
-        System.out.println("First Innings Started");
+        //System.out.println("First Innings Started");
 
         Player striker = battingTeam.getBatsman();
         Player nonStrikerEnd = battingTeam.getBatsman();
@@ -235,15 +263,15 @@ public class Match {
 
         }
 
-        System.out.println("First Innings Over");
-        System.out.println("\n");
+//        System.out.println("First Innings Over");
+//        System.out.println("\n");
 
     }
 
 
     void secondInningsScoreGenerator(Team battingTeam, Team bowlingTeam, int targetScore)
     {
-        System.out.println("Second Innings Started");
+        //System.out.println("Second Innings Started");
 
         Player striker = battingTeam.getBatsman();
         Player nonStrikerEnd = battingTeam.getBatsman();
@@ -366,8 +394,8 @@ public class Match {
             //System.out.println("\n");
 
         }
-        System.out.println("Second Innings Over");
-        System.out.println("\n\n");
+//        System.out.println("Second Innings Over");
+//        System.out.println("\n\n");
 
     }
 
@@ -380,8 +408,7 @@ public class Match {
             System.out.println("               Over Bowled in first innings:      " + getFirstInningsOverBowled());
             System.out.println("               Wickets fallen in first innings:   " + getFirstInningsWicket());
         }
-        else
-            {
+        else{
         System.out.println("               Score of " + innings + " inning is " + getSecondInningsScore());
         System.out.println("               Over Bowled in second innings:      " + getSecondInningsOverBowled());
         System.out.println("               Wickets fallen in second innings:   " + getSecondInningsWicket());

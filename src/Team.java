@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Team {
 
-    private String teamName;
+    private  int teamID;
     private List <Player> PlayersArrayList = new ArrayList<Player>();
     private boolean isMatchWon = false;
     private int allBatsmanOut = 0;
@@ -12,18 +12,29 @@ public class Team {
     private String tossResult = null;
 
 
-    public Team ( String teamName, List<Player> PlayersArrayList ) {
-        setTeamName ( teamName );
+    public Team ( int teamID, List<Player> PlayersArrayList ) {
+        setTeamID(teamID);
         setPlayersArrayList(PlayersArrayList);
     }
 
     @Override
     public String toString() {
-        return "Team { " +
-                "teamName='" + teamName + '\'' +
-                ", PlayersArrayList = " + PlayersArrayList +
-                ", isMatchWon = " + isMatchWon +
-                " }";
+        return "Team{" +
+                "teamID=" + teamID +
+                ", PlayersArrayList=" + PlayersArrayList +
+                ", isMatchWon=" + isMatchWon +
+                ", allBatsmanOut=" + allBatsmanOut +
+                ", tossWon=" + tossWon +
+                ", tossResult='" + tossResult + '\'' +
+                '}';
+    }
+
+    public int getTeamID() {
+        return teamID;
+    }
+
+    public void setTeamID(int teamID) {
+        this.teamID = teamID;
     }
 
     public boolean isTossWon() {
@@ -76,17 +87,11 @@ public class Team {
 
 
 
-    public String getTeamName() {
-        return teamName;
-    }
 
     public int getAllBatsmanOut() {
         return allBatsmanOut;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
 
     public List<Player> getPlayersArrayList() {
         return PlayersArrayList;
